@@ -57,12 +57,13 @@ export default {
 }
 
 .grid-item {
-  flex-basis: 20%;
+  flex-basis: 30%;
   -ms-flex: auto;
   position: relative;
-  padding: 10px;
-  width: fit-content;
+  width: 100%;
   box-sizing: border-box;
+  margin: 5px;
+  
 }
 
 .Webhook {
@@ -74,10 +75,9 @@ export default {
 .card {
   position: relative;
   display: block;
-  padding: 36px;
-
-  width: fit-content !important;
-  height: fit-content;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
   background:transparent;
   border: 2px dashed rgba(255,255,255,0.3);
   border-radius: 5px;
@@ -85,7 +85,9 @@ export default {
   transition: all 0.5s;
   cursor: pointer;
   text-align: center;
-  margin: 10px;
+  box-sizing: border-box;
+  margin: 5px;
+
 }
 
 

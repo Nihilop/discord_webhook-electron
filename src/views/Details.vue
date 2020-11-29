@@ -18,7 +18,7 @@
 
           <div class="formControl">
             <span style="padding:0 15px; float:left; line-height:40px">Choisir une couleur :</span>
-            <el-color-picker v-model="hookData.color"></el-color-picker>
+            <el-color-picker class="colorpicker" v-model="hookData.color"></el-color-picker>
           </div>
          
           
@@ -407,15 +407,20 @@ hr {
 .webhookImg img {
   display: block;
   width: 100%;
+  margin: 24px 0;
+  border-radius: 5px;
 }
 
 .masterContent {
   width: 100%;
-  background: white !important;
-  color: gray !important;
+  background: rgba(255,255,255,0.3) !important;
+  color: #222 !important;
   padding: 15px;
   box-sizing: border-box;
   border-radius: 5px;
+}
+.masterContent:focus {
+  background: rgba(255,255,255,1) !important;
 }
 textarea.masterContent {
   min-height: 150px;
@@ -493,5 +498,14 @@ textarea.masterContent {
   to {
     transform: translateY(0);
   }
+}
+.colorpicker {
+  background: white;
+  border: 1px solid gray;
+  outline: 0;
+  border-radius: 5px;
+}
+.el-color-picker__trigger {
+  border: 0px solid transparent !important;
 }
 </style>

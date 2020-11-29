@@ -37,7 +37,7 @@ export default {
 @import url('~element-ui/lib/theme-chalk/index.css');
 @font-face {
  font-family: "discord";
- src: url("/assets/fonts/discord.woff2") format("woff2");
+ src: url("/assets/fonts/Discord.woff2") format("woff2");
 }
 #app {
   font-family: discord, 'Roboto';
