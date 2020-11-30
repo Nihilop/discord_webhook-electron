@@ -2,7 +2,10 @@ module.exports = {
     pluginOptions: {
         electronBuilder: {
             nodeIntegration: true,
-            publish: ['github']   
+            publish: ['github'],
+            builderOptions: {
+                productName: 'Discord HookTools'
+            }
         }
     },
 

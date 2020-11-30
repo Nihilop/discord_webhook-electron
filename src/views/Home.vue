@@ -6,6 +6,7 @@
     <div class="authWrap">
       <el-button @click="discoAuth">Connexion</el-button> 
     </div>
+    <i>P.S: Aka jtm bb ♥</i>
   </div>
 </template>
 
