@@ -16,11 +16,46 @@
 
         <div id="Field" class="showUp" v-if="show == 1">
 
+
           <div class="formControl">
             <span style="padding:0 15px; float:left; line-height:40px">Choisir une couleur :</span>
             <el-color-picker class="colorpicker" v-model="hookData.color"></el-color-picker>
           </div>
          
+          <!-- <discord-messages>
+            <discord-message>
+              <discord-embed
+                slot="embeds"
+                :color="hookData.color"
+                title="Some title"
+                :url="hookData.masterTitleLink"
+                thumbnail="https://i.imgur.com/wSTFkRM.png"
+                image="https://i.imgur.com/wSTFkRM.png"
+                footer-image="https://i.imgur.com/wSTFkRM.png"
+                timestamp="01/01/2018"
+                author-name="Some name"
+                author-image="https://i.imgur.com/wSTFkRM.png"
+                author-url="https://discord.js.org/"
+              >
+                <p v-if="hookData.desc">{{hookData.desc}}</p>
+                <embed-fields slot="fields">
+                  <embed-field title="Regular field title">
+                    Some value here
+                  </embed-field>
+                  <embed-field :inline="true" title="Inline field title">
+                    Some value here
+                  </embed-field>
+                  <embed-field :inline="true" title="Inline field title">
+                    Some value here
+                  </embed-field>
+                  <embed-field :inline="true" title="Inline field title">
+                    Some value here
+                  </embed-field>
+                </embed-fields>
+                <span slot="footer">Some footer text here</span>
+              </discord-embed>
+            </discord-message>
+          </discord-messages> -->
           
           <form class="discWebhook_form" @change="valuesChanged">
             <span class="colorIndicator" :style="{ background: hookData.color }"></span>

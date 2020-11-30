@@ -3529,6 +3529,11 @@ dir-glob@^2.0.0, dir-glob@^2.2.2:
   dependencies:
     path-type "^3.0.0"
 
+discord-oauth2@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.npm.taobao.org/discord-oauth2/download/discord-oauth2-2.6.0.tgz#d362b386e77a3eb3135772307a253514e0dc48be"
+  integrity sha1-02Kzhud6PrMTV3IweiU1FODcSL4=
+
 discord-webhook-node@^1.1.8:
   version "1.1.8"
   resolved "https://registry.npm.taobao.org/discord-webhook-node/download/discord-webhook-node-1.1.8.tgz#3993273b3e5ad276a35022c51d5f64131651a214"
@@ -4975,6 +4980,11 @@ hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
+
+hex-to-rgba@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/hex-to-rgba/download/hex-to-rgba-1.0.2.tgz#1273dc05a499ddc955b80220ae04dcf542decfec"
+  integrity sha1-EnPcBaSZ3clVuAIgrgTc9ULez+w=
 
 highlight.js@^10.0.0:
   version "10.4.0"
@@ -9696,6 +9706,13 @@ vue-cli-plugin-element@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/vue-cli-plugin-element/download/vue-cli-plugin-element-1.0.1.tgz#34e58fb65b36cf59afaf14f503288e5e578b1554"
   integrity sha1-NOWPtls2z1mvrxT1AyiOXleLFVQ=
+
+vue-discord-message@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.npm.taobao.org/vue-discord-message/download/vue-discord-message-5.0.1.tgz#9498b5406abd7f43adb62b8a25c1f059b4df2ab7"
+  integrity sha1-lJi1QGq9f0OttiuKJcHwWbTfKrc=
+  dependencies:
+    hex-to-rgba "^1.0.1"
 
 vue-eslint-parser@^7.0.0:
   version "7.1.1"

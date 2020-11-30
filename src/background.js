@@ -3,8 +3,10 @@
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
+import { autoUpdater } from "electron-updater"
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const path = require('path')
+
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -36,6 +38,7 @@ async function createWindow() {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
+    autoUpdater.checkForUpdatesAndNotify()
   }
 }
 

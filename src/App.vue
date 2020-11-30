@@ -2,6 +2,7 @@
   <div id="app">
     <header id="titlebar">
       <div id="drag-region">
+        <p style="font-size:12px; color:rgba(255,255,255,0.05); line-height:32px; padding:0 14px; margin:0;">Discord - Webhook</p>
         <div id="window-controls">
             <ph-minus id="min-button" class="winCtrl" :size="20" weight="thin" />
             <ph-corners-out id="max-button" class="winCtrl" :size="20" weight="thin" />
@@ -60,7 +61,7 @@ html, body {
   overflow: hidden;
   height: 100%;
   height:100%;
-  
+  font-family: sans-serif;
 }
 
 ::-webkit-scrollbar {
