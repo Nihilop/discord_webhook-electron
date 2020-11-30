@@ -4,7 +4,7 @@
     <p>Ceci est une version BETA, merci de faire remonter les bugs.</p>
     <p>Vous pouvez rejoindre mon serveur ici : <a @click="openNav('https://discord.gg/ZhH6JYZAdz')" style="color:RGB(114,137,218)" target="_blank">Discord Nihilo.fr</a></p>
     <div class="authWrap">
-      <el-button @click="discoAuth">Connexion</el-button>
+      <el-button @click="discoAuth">Connexion</el-button> 
     </div>
   </div>
 </template>

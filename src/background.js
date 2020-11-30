@@ -1,10 +1,12 @@
 'use strict'
 
 import { app, protocol, BrowserWindow } from 'electron'
-import { createProtocol, autoUpdater } from 'vue-cli-plugin-electron-builder/lib'
+import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
+import { autoUpdater } from 'electron-updater'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
+import path from 'path'
 const isDevelopment = process.env.NODE_ENV !== 'production'
-const path = require('path')
+
 
 
 // Scheme must be registered before the app is ready
@@ -20,6 +22,7 @@ async function createWindow() {
     frame: false,
     transparent: true,
     backgroundColor: '#00FFFFFF',
+    //icon: path.join(__static, 'icon.png'),
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
