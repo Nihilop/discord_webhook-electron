@@ -7,7 +7,7 @@
       {{ server.name }} 
     </p>
     <div class="cardController">
-      <ph-pencil-line class="iconCard" :size="15" weight="thin" @click="$emit('edit',server)" color="rgba(255,255,255,.3)" />
+      <!-- <ph-pencil-line class="iconCard" :size="15" weight="thin" @click="$emit('edit',server)" color="rgba(255,255,255,.3)" /> -->
       <el-popover
         placement="bottom"
         width="220"
@@ -53,7 +53,7 @@ export default {
   display: block;
   min-width: 100px;
   width: 100%;
-  height: 100px;
+  height: 150px;
   background:RGB(41,43,47);
   border-radius: 5px;
   cursor: pointer;
@@ -78,7 +78,7 @@ export default {
   display: block;
   height: 100%;
   width: 100%;
-  line-height: 100px;
+  line-height: 150px;
   
   text-align: center;
   z-index: 0;

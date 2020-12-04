@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+//import { component } from 'vue/types/umd'
 import Home from '../views/Home.vue'
 import Webhook from '../views/WebHook.vue'
 

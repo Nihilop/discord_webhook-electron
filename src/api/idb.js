@@ -84,6 +84,23 @@ export default {
 
 		});
 	
+	},
+	async saveHook(hook) {
+
+		let db = await this.getDb();
+
+		return new Promise(resolve => {
+
+			let trans = db.transaction(['hookImage'],'readwrite');
+			trans.oncomplete = () => {
+				resolve();
+			};
+
+			let store = trans.objectStore('hookImage');
+			store.put(hook);
+
+		});
+	
 	}
 
 }

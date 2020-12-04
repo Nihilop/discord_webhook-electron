@@ -1,13 +1,17 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, ipcMain } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
+const log = require('electron-log');
 import { autoUpdater } from 'electron-updater'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -15,14 +19,15 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 async function createWindow() {
+  //const splash = new BrowserWindow({width: 340, height: 400, transparent: false, frame: false, alwaysOnTop: true});
   // Create the browser window.
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    minWidth: 600,
+    minHeight: 400,
     frame: false,
-    transparent: true,
-    backgroundColor: '#00FFFFFF',
-    //icon: path.join(__static, 'icon.png'),
+    //backgroundColor: '#00FFFFFF',
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
@@ -39,10 +44,31 @@ async function createWindow() {
   } else {
     createProtocol('app')
     // Load the index.html when not in development
+    //splash.loadURL(`file://${__dirname}/splash.html`)
     win.loadURL('app://./index.html')
     autoUpdater.checkForUpdatesAndNotify()
+  } 
+
+  autoUpdater.on('update-available', () => {
+    win.webContents.send('update_available');
+  });
+  autoUpdater.on('update-downloaded', () => {
+    win.webContents.send('update_downloaded');
+  });
+  autoUpdater.on('download-progress', (progressObj) => {
+    //win.webContents.send('download_progress')
+    let log_message = "Download speed: " + progressObj.bytesPerSecond;
+    log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+    log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+    sendStatusToWindow(log_message);
+  });
+  function sendStatusToWindow(text) {
+    log.info(text);
+    win.webContents.send('message', text);
   }
+
 }
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -63,6 +89,7 @@ app.on('activate', () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
+  
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
     try {
@@ -71,8 +98,21 @@ app.on('ready', async () => {
       console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  createWindow()
+  createWindow()  
 })
+
+
+// UPDATER
+ipcMain.on('app_version', (event) => {
+  event.sender.send('app_version', { version: app.getVersion() });
+});
+ipcMain.on('manualCheckUpdate', () => {
+  autoUpdater.checkForUpdatesAndNotify()
+})
+ipcMain.on('restart_app', () => {
+  autoUpdater.quitAndInstall();
+});
+
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {

@@ -3,10 +3,12 @@
     <h1>accueil</h1>
     <p>Ceci est une version BETA, merci de faire remonter les bugs.</p>
     <p>Vous pouvez rejoindre mon serveur ici : <a @click="openNav('https://discord.gg/ZhH6JYZAdz')" style="color:RGB(114,137,218)" target="_blank">Discord Nihilo.fr</a></p>
-    <div class="authWrap">
+    <h1>Tuto rapide</h1>
+    <img class="tutoGif" src="/../../assets/img/tuto.gif">
+    <p>note : Il suffit de selectionner la partie concernée du webhook pour faire apparaitre la fenêtre de modification (images comprises, URL nécessaire).</p>
+    <!-- <div class="authWrap">
       <el-button @click="discoAuth">Connexion</el-button> 
-    </div>
-    <i>P.S: Aka jtm bb ♥</i>
+    </div> -->
   </div>
 </template>
 
@@ -36,7 +38,7 @@ export default {
         
         redirectUri: "http://localhost:8080/callback",
       }).then(console.log)
-    }
+    }    
   }
 };
 </script>
@@ -52,5 +54,10 @@ p {
 }
 a {
   cursor: pointer;
+}
+.tutoGif {
+  max-width: 100%;
+  border: 1px solid white;
+  margin: 15px auto;
 }
 </style>
